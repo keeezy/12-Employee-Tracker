@@ -1,12 +1,18 @@
 const inquirer = require("inquirer");
 const db = require("./config/connection.js");
+const showDepartments = require("./utils/showDepartments.js");
+const showRoles = require("./utils/showRoles.js");
+const showAllEmployees = require("./utils/showEmployees.js");
+const showAllRoles = require("./utils/showRoles.js");
+const showAllEmployees = require("./utils/showEmployees.js");
+
 
 const startQuestions = {
     name: "questions",
     message: "Welcome to employee manager, what would you like to do?",
     type: "list",
     choices: [
-        "Show All departments",
+        "Show All Departments",
         "Show All Roles",
         "Show All Employees",
         "Add A Department",
@@ -116,10 +122,20 @@ const start = () => {
 
             // based on user choice, we'll ask additional questions
             switch (response.questions) {
+                case "Show All Departments":
+                    return showDepartments();
+                case "Show All Roles":
+                    return showRoles();
                 case "Show All Employees":
                     return showAllEmployees();
-                case "Add Employee":
+                case "Add A Department":
+                    return addDepartment();
+                case "Add A Role":
+                    return addRole();
+                case "Add An Employee":
                     return addEmployee();
+                case "Update An Employee's Role":
+                    return updateEmployeeRole();
             }
         })
 }
