@@ -1,1 +1,1 @@
-const db = require("./config/connection.js");
+const db = require("../config/connection.js");

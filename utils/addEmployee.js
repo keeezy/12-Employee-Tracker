@@ -1,4 +1,4 @@
-const db = require("./config/connection.js");
+const db = require("../config/connection.js");
 const inquirer = require("inquirer");
 
 
@@ -87,3 +87,5 @@ const addEmployee = () => {
         });
     });
 }
+
+start()

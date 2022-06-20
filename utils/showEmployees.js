@@ -1,4 +1,4 @@
-const db = require("./config/connection.js");
+const db = require("../config/connection.js");
 
 const showAllEmployees = () => {
     // calls to db, and show all employees
@@ -6,7 +6,6 @@ const showAllEmployees = () => {
         console.log("----------- EMPLOYEES ----------- ")
         console.table(results)
         // console.log("----------- EMPLOYEES ----------- ")
-        return showAllEmployees();
     })
 }
 
