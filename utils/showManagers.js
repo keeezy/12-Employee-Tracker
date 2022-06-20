@@ -6,7 +6,7 @@ const showManagers = () => {
         console.log("----------- EMPLOYEES ----------- ")
         console.table(results)
         // console.log("----------- EMPLOYEES ----------- ")
-    })
+    });
 }
 
 module.exports = showManagers;

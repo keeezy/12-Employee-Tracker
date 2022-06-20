@@ -1,5 +1,6 @@
 const db = require("../config/connection.js");
 const inquirer = require("inquirer");
+const start = require("../index.js");
 
 
 const addEmployeeQuestions = [
@@ -88,4 +89,4 @@ const addEmployee = () => {
     });
 }
 
-start()
+module.exports = addEmployee;

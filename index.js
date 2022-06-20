@@ -4,6 +4,7 @@ const showDepartments = require("./utils/showDepartments.js");
 const showRoles = require("./utils/showRoles.js");
 const showAllEmployees = require("./utils/showEmployees.js");
 const showAllRoles = require("./utils/showRoles.js");
+const addEmployee = require("./utils/addEmployee.js");
 
 
 const startQuestions = {
@@ -114,6 +115,31 @@ const startQuestions = {
 //     })
 // }
 
+// const start = () => {
+//     inquirer.prompt(startQuestions)
+//         .then(response => {
+//             console.log("the user chose", response)
+
+//             // based on user choice, we'll ask additional questions
+//             switch (response.questions) {
+//                 case "Show All Departments":
+//                     return showDepartments();
+//                 case "Show All Roles":
+//                     return showRoles();
+//                 case "Show All Employees":
+//                     return showAllEmployees();
+//                 case "Add A Department":
+//                     return addDepartment();
+//                 case "Add A Role":
+//                     return addRole();
+//                 case "Add An Employee":
+//                     return addEmployee();
+//                 case "Update An Employee's Role":
+//                     return updateEmployeeRole();
+//             }
+//         })
+// }
+
 const start = () => {
     inquirer.prompt(startQuestions)
         .then(response => {
@@ -122,26 +148,47 @@ const start = () => {
             // based on user choice, we'll ask additional questions
             switch (response.questions) {
                 case "Show All Departments":
-                    return showDepartments();
+                    const allDepartments = showDepartments();
+                    return setTimeout(start, 3000);
                 case "Show All Roles":
-                    return showRoles();
+                    const allRoles = showRoles();
+                    return setTimeout(start, 3000);
                 case "Show All Employees":
-                    return showAllEmployees();
+                    const allEmployees = showAllEmployees();
+                    return setTimeout(start, 3000);
                 case "Add A Department":
-                    return addDepartment();
+                    const addDepartment = addDepartment();
+                    return setTimeout(start, 3000);
                 case "Add A Role":
-                    return addRole();
+                    const addRole = addRole();
+                    return setTimeout(start, 3000);
                 case "Add An Employee":
-                    return addEmployee();
+                    const addEmployee = addEmployee();
+                    return setTimeout(start, 3000);
                 case "Update An Employee's Role":
-                    return updateEmployeeRole();
+                    const updateEmployeeRole = updateEmployeeRole();
+                    return setTimeout(start, 3000);
+
             }
         })
 }
 
+
+// const showDepartments = () => {
+//     // calls to db, and show all employees
+//     db.query("SELECT * FROM department").then(results => {
+//         console.log("----------- DEPARTMENTS ----------- ")
+//         console.table(results);
+//         // console.log("----------- EMPLOYEES ----------- ")
+//         setTimeout(start, 3000);
+//     });
+// }
+
 const init = () => {
     start();
 }
+
+module.exports = start;
 
 
 init()

@@ -6,7 +6,7 @@ const showRoles = () => {
         console.log("----------- ROLES ----------- ")
         console.table(results)
         // console.log("----------- EMPLOYEES ----------- ")
-    })
+    });
 }
 
 module.exports = showRoles;
