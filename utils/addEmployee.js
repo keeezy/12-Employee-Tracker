@@ -1,45 +1,34 @@
-const inquirer = require("inquirer");
 const db = require("./config/connection.js");
+const inquirer = require("inquirer");
 
-const startQuestions = {
-    name: "questions",
-    message: "Welcome to employee manager, what would you like to do?",
-    type: "list",
-    choices: [
-        "Show All departments",
-        "Show All Roles",
-        "Show All Employees",
-        "Add A Department",
-        "Add A Role",
-        "Add An Employee",
-        "Update An Employee's Role",
-    ]
-}
 
-// const addEmployeeQuestions = [
-//     {
-//         name: "first_name",
-//         message: "What is the employee's first name?",
-//     },
-//     {
-//         name: "last_name",
-//         message: "What is the employee's last name?"
-//     },
-//     {
-//         name: "role_id",
-//         message: "What is the employee's title?",
-//         type: "list",
-//         choices: [
-//             {}
-//         ]
-//     },
-//     {
-//         name: "manager_id",
-//         message: "Who is this employee's manager?",
-//         type: "list",
-//     }
+const addEmployeeQuestions = [
+    {
+        name: "first_name",
+        message: "What is the employee's first name?",
+    },
+    {
+        name: "last_name",
+        message: "What is the employee's last name?"
+    },
+    {
+        name: "role_id",
+        message: "What is the employee's title?",
+        type: "list",
+        choices: [
+            {}
+        ]
+    },
+    {
+        name: "manager_id",
+        message: "Who is this employee's manager?",
+        type: "list",
+        choices: [
+            {}
+        ]
+    }
 
-// ]
+]
 
 const addEmployee = () => {
     // Need to inquirer to gather info on new employee
@@ -98,30 +87,3 @@ const addEmployee = () => {
         });
     });
 }
-
-// const showAllEmployees = () => {
-//     // calls to db, and show all employees
-//     db.query("SELECT * FROM employee").then(results => {
-//         console.log("----------- EMPLOYEES ----------- ")
-//         console.table(results)
-//         // console.log("----------- EMPLOYEES ----------- ")
-//         return showAllEmployees();
-//     })
-// }
-
-const start = () => {
-    inquirer.prompt(startQuestions)
-        .then(response => {
-            console.log("the user chose", response)
-
-            // based on user choice, we'll ask additional questions
-            switch (response.questions) {
-                case "Show All Employees":
-                    return showAllEmployees();
-                case "Add Employee":
-                    return addEmployee();
-            }
-        })
-}
-
-start()
