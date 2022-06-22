@@ -1,6 +1,5 @@
 const db = require("../config/connection.js");
 const inquirer = require("inquirer");
-const start = require("../index.js");
 
 
 const addEmployeeQuestions = [
@@ -31,14 +30,14 @@ const addEmployeeQuestions = [
 
 ]
 
-const addEmployee = () => {
+const addEmployee = (callbackStart) => {
     // Need to inquirer to gather info on new employee
     // we need all the currert rol id to allow choose role_id thats in role table,
     // we need all the current emp ids, to choose manager_id
     db.query(`SELECT id, first_name, last_name FROM employee`
     ).then((managers) => {
 
-        console.log("managers-----------", managers)
+        // console.log("managers-----------", managers)
         const managerChoices = managers.map(man => {
             return {
                 name: `${man.first_name} ${man.last_name}`,
@@ -46,7 +45,7 @@ const addEmployee = () => {
             }
         })
         db.query(`SELECT id, title FROM role`).then((results) => {
-            console.table(results);
+            // console.table(results);
             const choices = results.map((role) => {
                 return {
                     name: role.title,
@@ -54,7 +53,7 @@ const addEmployee = () => {
                 }
             });
 
-            console.log("CHOICES MADE FOR INQUIRER PROMPT----", choices)
+            // console.log("CHOICES MADE FOR INQUIRER PROMPT----", choices)
             // converts results to an array of choices for prompt
             const addEmployeeQuestions = [
                 {
@@ -81,9 +80,9 @@ const addEmployee = () => {
 
             inquirer.prompt(addEmployeeQuestions)
                 .then(results => {
-                    console.log("results -----", results)
-                db.query("INSERT INTO employee SET ?", results)
-                .then((start))
+                    console.log("Added New Employee!", results)
+                    db.query("INSERT INTO employee SET ?", results)
+                        .then((callbackStart))
                 });
         });
     });

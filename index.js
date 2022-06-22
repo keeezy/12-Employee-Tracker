@@ -163,8 +163,7 @@ const start = () => {
                     const addRole = addRole();
                     return setTimeout(start, 3000);
                 case "Add An Employee":
-                    const addEmployee = addEmployee();
-                    return setTimeout(start, 3000);
+                    return addEmployee(start);
                 case "Update An Employee's Role":
                     const updateEmployeeRole = updateEmployeeRole();
                     return setTimeout(start, 3000);
@@ -188,7 +187,7 @@ const init = () => {
     start();
 }
 
-module.exports = start;
+
 
 
 init()
