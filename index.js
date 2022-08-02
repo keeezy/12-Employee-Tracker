@@ -3,10 +3,10 @@ const db = require("./config/connection");
 const showDepartments = require("./utils/showDepartments.js");
 const showRoles = require("./utils/showRoles.js");
 const showAllEmployees = require("./utils/showEmployees.js");
-const showAllRoles = require("./utils/showRoles.js");
 const addEmployee = require("./utils/addEmployee.js");
 const addDepartment = require("./utils/addDepartment");
 const addRole = require("./utils/addRole");
+const updateEmployee = require("./utils/updateEmployee");
 
 
 const startQuestions = {
@@ -165,8 +165,7 @@ const start = () => {
                 case "Add An Employee":
                     return addEmployee(start, 3000);
                 case "Update An Employee's Role":
-                    const updateEmployeeRole = updateEmployeeRole();
-                    return setTimeout(start, 3000);
+                    return updateEmployee(start, 3000);
 
             }
         })
