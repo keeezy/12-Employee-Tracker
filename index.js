@@ -5,6 +5,7 @@ const showRoles = require("./utils/showRoles.js");
 const showAllEmployees = require("./utils/showEmployees.js");
 const showAllRoles = require("./utils/showRoles.js");
 const addEmployee = require("./utils/addEmployee.js");
+const addDepartment = require("./utils/addDepartment");
 
 
 const startQuestions = {
@@ -157,8 +158,7 @@ const start = () => {
                     const allEmployees = showAllEmployees();
                     return setTimeout(start, 3000);
                 case "Add A Department":
-                    const addDepartment = addDepartment();
-                    return setTimeout(start, 3000);
+                    return addDepartment(start);
                 case "Add A Role":
                     const addRole = addRole();
                     return setTimeout(start, 3000);
