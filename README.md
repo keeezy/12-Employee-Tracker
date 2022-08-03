@@ -2,7 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-Achitect and build a solution for managing a company's employees using node, inquirer, and MySQL.
+Achitect and build a solution for managing a company's employees using node, inquirer, and MySQL. [Link Demo](https://drive.google.com/file/d/1gsBFVOwfKgy34xgFXzXcua7U9AoXFms0/view?usp=sharing)
 
 ## Table of Contents:
 * [Installation](#installation)
@@ -20,6 +20,7 @@ Achitect and build a solution for managing a company's employees using node, inq
     * `node index.js` to begin the CLI
 
 ## Usage:
+![gif](https://media.giphy.com/media/IhFjcK8QA2Q6dO2fnF/giphy.gif)
 <br>Application Preview
 
 * Node.js
